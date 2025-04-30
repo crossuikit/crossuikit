@@ -171,7 +171,7 @@ A multi-step form component for guiding users through workflows.
 
 ## License
 
-[Your License Here]
+MIT
 
 ## Changelog
 
