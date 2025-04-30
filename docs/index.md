@@ -1,3 +1,7 @@
+---
+layout: home
+---
+
 Here's a comprehensive `README.md` for your `crossuikit` project that explains how to use it on web (with TypeScript), Android (Kotlin), and iOS (Swift):
 
 ### crossuikit
