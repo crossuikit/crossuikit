@@ -9,3 +9,8 @@ kramdown:
   math_engine: mathjax
   syntax_highlighter: rouge
 theme: minima
+author:
+  name: John Smith
+  email: "john.smith@foobar.com"
+minima:
+  show_excerpts: true
