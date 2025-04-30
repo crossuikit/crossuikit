@@ -1,5 +1,3 @@
-Here's a comprehensive `README.md` for your `crossuikit` project that explains how to use it on web (with TypeScript), Android (Kotlin), and iOS (Swift):
-
 ### crossuikit
 
 A cross-platform UI toolkit with consistent design system for web, Android, and iOS platforms.
