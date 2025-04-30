@@ -1,5 +1,3 @@
-### crossuikit
-
 A cross-platform UI toolkit with consistent design system for web, Android, and iOS platforms.
 
 ## Features
@@ -26,7 +24,7 @@ Add the dependency to your `build.gradle` file:
 dependencies {
     implementation("androidx.compose.ui:ui:1.4.0")
     implementation("androidx.compose.material:material:1.4.0")
-    // Add yourCrossuikit library
+    // Add your Crossuikit library
     implementation("com.github.crossuikit:crossuikit-android:1.0.0")
 }
 ```
