@@ -1,0 +1,26 @@
+{
+  "name": "crossuikit",
+  "version": "1.0.0",
+  "description": "A cross platform ui-kit",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/crossuikit/crossuikit.git"
+  },
+  "keywords": [
+    "cross",
+    "platform",
+    "ui",
+    "ux",
+    "kit"
+  ],
+  "author": "Purbohadi Utomo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/crossuikit/crossuikit/issues"
+  },
+  "homepage": "https://github.com/crossuikit/crossuikit#readme"
+}
