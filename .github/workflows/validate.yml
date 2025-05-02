@@ -24,4 +24,3 @@ jobs:
       - run: pnpm run validate
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
