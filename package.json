@@ -1,26 +1,40 @@
 {
-  "name": "crossuikit",
-  "version": "1.0.0",
-  "description": "A cross platform ui-kit",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/crossuikit/crossuikit.git"
-  },
-  "keywords": [
-    "cross",
-    "platform",
-    "ui",
-    "ux",
-    "kit"
+  "name": "@crossuikit/root",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "examples/*"
   ],
-  "author": "Purbohadi Utomo",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/crossuikit/crossuikit/issues"
+  "scripts": {
+    "build": "pnpm -r run build",
+    "dev": "pnpm --parallel -r run dev",
+    "test": "pnpm -r run test",
+    "clean": "pnpm -r run clean",
+    "lint": "pnpm -r run lint",
+    "example:react": "pnpm --filter @crossuikit/react-example dev",
+    "example:next": "pnpm --filter @crossuikit/next-example dev",
+    "changeset": "changeset",
+    "version": "changeset version",
+    "release": "changeset publish",
+    "prerelease": "pnpm run validate",
+    "validate": "pnpm run type-check && pnpm run lint && pnpm run test && pnpm run build",
+    "type-check": "pnpm -r run type-check"
   },
-  "homepage": "https://github.com/crossuikit/crossuikit#readme"
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0",
+    "@changesets/cli": "^2.26.0",
+    "eslint": "^8.0.0",
+    "jest": "^29.0.0",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/jest-dom": "^6.0.0"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
 }

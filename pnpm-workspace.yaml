@@ -1,0 +1,8 @@
+packages:
+  # Core package
+  - "packages/core"
+  # Example applications
+  - "examples/*"
+  # Exclude node_modules
+  - "!**/node_modules"
+  - "!**/dist"

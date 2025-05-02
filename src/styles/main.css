@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Base Theme Variables */
+    --color-primary: theme('colors.primary.DEFAULT');
+    --color-secondary: theme('colors.secondary.DEFAULT');
+    
+    /* Spacing System */
+    --spacing-xs: theme('spacing.xs');
+    --spacing-sm: theme('spacing.sm');
+    --spacing-md: theme('spacing.md');
+    --spacing-lg: theme('spacing.lg');
+    --spacing-xl: theme('spacing.xl');
+    
+    /* Border Radius */
+    --radius-xs: theme('borderRadius.xs');
+    --radius-sm: theme('borderRadius.sm');
+    --radius-md: theme('borderRadius.md');
+    --radius-lg: theme('borderRadius.lg');
+    --radius-xl: theme('borderRadius.xl');
+  }
+}
+
+/* Define reusable component classes */
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-md font-medium transition-colors duration-200;
+  }
+  
+  .btn-primary {
+    @apply btn bg-primary-500 text-white hover:bg-primary-600;
+  }
+  
+  .btn-secondary {
+    @apply btn bg-secondary-500 text-primary-700 hover:bg-secondary-600;
+  }
+  
+  .input {
+    @apply px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent;
+  }
+  
+  .card {
+    @apply bg-white rounded-lg shadow-md p-4;
+  }
+}

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CrossUI Kit Demo"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp"/>
+
+        <com.crossui.demo.components.Button
+            android:id="@+id/themeSwitchButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:variant="primary"
+            android:text="Toggle Theme"
+            android:layout_marginBottom="24dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button Variants"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <com.crossui.demo.components.Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:variant="primary"
+                android:text="Primary"
+                android:layout_marginEnd="8dp"/>
+
+            <com.crossui.demo.components.Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:variant="secondary"
+                android:text="Secondary"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button Sizes"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <com.crossui.demo.components.Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:size="small"
+                android:text="Small"
+                android:layout_marginEnd="8dp"/>
+
+            <com.crossui.demo.components.Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:size="medium"
+                android:text="Medium"
+                android:layout_marginEnd="8dp"/>
+
+            <com.crossui.demo.components.Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:size="large"
+                android:text="Large"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Full Width Button"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <com.crossui.demo.components.Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:variant="primary"
+            android:text="Full Width Button"/>
+    </LinearLayout>
+</ScrollView>

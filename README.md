@@ -155,6 +155,147 @@ A multi-step form component for guiding users through workflows.
 }
 ```
 
+## Theme Customization
+
+The CrossUI Kit comes with a powerful theming system built on top of Tailwind CSS. You can customize the theme in two ways:
+
+### 1. Using the ThemeProvider
+
+```tsx
+import { ThemeProvider } from "@crossuikit/crossuikit";
+
+const myTheme = {
+  colors: {
+    primary: "#2563EB",
+    secondary: "#DBEAFE",
+  },
+  spacing: {
+    xs: "0.25rem",
+    sm: "0.5rem",
+    // ... other spacing values
+  },
+  borderRadius: {
+    xs: "0.125rem",
+    sm: "0.25rem",
+    // ... other border radius values
+  },
+};
+
+function App() {
+  return (
+    <ThemeProvider theme={myTheme}>{/* Your app content */}</ThemeProvider>
+  );
+}
+```
+
+### 2. Using Tailwind Configuration
+
+You can also customize the theme by extending your `tailwind.config.js`:
+
+```js
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        primary: {
+          DEFAULT: "#2563EB",
+          50: "#EFF6FF",
+          // ... other shades
+        },
+        secondary: {
+          DEFAULT: "#DBEAFE",
+          // ... other shades
+        },
+      },
+      // ... other theme customizations
+    },
+  },
+};
+```
+
+### Dynamic Theme Switching
+
+You can dynamically switch themes using the `ThemeProvider`:
+
+```tsx
+import { useState } from "react";
+import { ThemeProvider } from "@crossuikit/crossuikit";
+
+const lightTheme = {
+  colors: {
+    primary: "#2563EB",
+    secondary: "#DBEAFE",
+  },
+};
+
+const darkTheme = {
+  colors: {
+    primary: "#1E40AF",
+    secondary: "#1E3A8A",
+  },
+};
+
+function App() {
+  const [theme, setTheme] = useState(lightTheme);
+
+  return (
+    <ThemeProvider theme={theme}>
+      <button
+        onClick={() =>
+          setTheme((current) =>
+            current === lightTheme ? darkTheme : lightTheme
+          )
+        }
+      >
+        Toggle Theme
+      </button>
+    </ThemeProvider>
+  );
+}
+```
+
+### Theme Structure
+
+The theme object accepts the following properties:
+
+```typescript
+interface Theme {
+  colors?: {
+    primary?: string;
+    secondary?: string;
+    [key: string]: string | undefined;
+  };
+  spacing?: {
+    xs?: string;
+    sm?: string;
+    md?: string;
+    lg?: string;
+    xl?: string;
+    [key: string]: string | undefined;
+  };
+  borderRadius?: {
+    xs?: string;
+    sm?: string;
+    md?: string;
+    lg?: string;
+    xl?: string;
+    [key: string]: string | undefined;
+  };
+}
+```
+
+### Default Theme Values
+
+The default theme includes a carefully crafted set of values that work well together. You can override any of these values while keeping the rest as defaults.
+
+### Best Practices
+
+1. **Consistency**: Keep your theme values consistent across your application
+2. **Color Palette**: Use a cohesive color palette with proper contrast ratios
+3. **Responsive Design**: Consider different screen sizes when defining spacing
+4. **Accessibility**: Ensure color combinations meet WCAG guidelines
+5. **Component Variants**: Create theme variations for different component states
+
 ## Contributing
 
 1. Fork the repository
