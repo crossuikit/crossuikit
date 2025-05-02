@@ -18,5 +18,10 @@ jobs:
         with:
           node-version: 16
           cache: "pnpm"
+          registry-url: "https://npm.pkg.github.com"
+          scope: "@crossuikit"
       - run: pnpm install
       - run: pnpm run validate
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
