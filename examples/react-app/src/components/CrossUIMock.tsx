@@ -119,7 +119,7 @@ export function ThemeDemo() {
                 {name}
               </span>
             </div>
-          )
+          ),
         )}
       </div>
     </div>

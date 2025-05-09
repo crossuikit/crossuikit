@@ -1,0 +1,74 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Welcome" />
+
+# Welcome to CrossUI Kit
+
+CrossUI Kit is a modern, accessible, and customizable UI component library built with React and Tailwind CSS.
+
+## Features
+
+- 🎨 Beautiful and modern design
+- 🌙 Dark mode support
+- ♿ Accessibility first
+- 📱 Responsive components
+- 🎯 TypeScript support
+- 🎭 Customizable theming
+- 🔄 Stepperize integration
+
+## Getting Started
+
+### Installation
+
+```bash
+npm install @crossuikit/core
+# or
+yarn add @crossuikit/core
+# or
+pnpm add @crossuikit/core
+```
+
+### Basic Usage
+
+```tsx
+import { Button } from '@crossuikit/core';
+
+function App() {
+  return (
+    <Button variant="primary">
+      Click me
+    </Button>
+  );
+}
+```
+
+### Theme Provider
+
+To enable dark mode and theming, wrap your app with the `ThemeProvider`:
+
+```tsx
+import { ThemeProvider } from '@crossuikit/core';
+
+function App() {
+  return (
+    <ThemeProvider>
+      {/* Your app content */}
+    </ThemeProvider>
+  );
+}
+```
+
+## Components
+
+Our component library includes:
+
+- Button
+- More components coming soon...
+
+## Contributing
+
+We welcome contributions! Please see our [contributing guide](https://github.com/yourusername/crossuikit) for more details.
+
+## License
+
+MIT © [Your Name] 

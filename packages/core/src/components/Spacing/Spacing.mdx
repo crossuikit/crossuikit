@@ -1,0 +1,143 @@
+import { Meta, Primary, Controls, Story, Source } from '@storybook/blocks';
+import * as SpacingStories from './Spacing.stories';
+
+<Meta of={SpacingStories} />
+
+# Spacing
+
+The Spacing component provides a visual representation of spacing tokens in the design system, helping maintain consistent spacing throughout the application.
+
+## Features
+
+- Visual representation of spacing tokens
+- Multiple size options (xs to 4xl)
+- Vertical and horizontal directions
+- Customizable colors
+- Pixel value display
+- Interactive controls
+
+## Interactive Example
+
+Try out the Spacing component with different configurations:
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Examples
+
+### Default Spacing
+
+The default spacing component with medium size.
+
+<Story of={SpacingStories.Default} />
+
+### All Sizes
+
+A showcase of all available spacing sizes in the design system.
+
+<Story of={SpacingStories.AllSizes} />
+
+### Horizontal Spacing
+
+Examples of horizontal spacing with different sizes.
+
+<Story of={SpacingStories.Horizontal} />
+
+### Custom Color
+
+Spacing with a custom background color.
+
+<Story of={SpacingStories.CustomColor} />
+
+## Usage
+
+### Basic Usage
+
+<Source
+  language="tsx"
+  code={`
+import { Spacing } from '@crossuikit/core';
+
+function MyComponent() {
+  return (
+    <div>
+      <h1>Title</h1>
+      <Spacing size="md" />
+      <p>Content with medium spacing above</p>
+    </div>
+  );
+}
+  `}
+/>
+
+### With Different Sizes
+
+<Source
+  language="tsx"
+  code={`
+import { Spacing } from '@crossuikit/core';
+
+function SpacingExample() {
+  return (
+    <div>
+      <h1>Title</h1>
+      <Spacing size="xs" showValue />
+      <p>Small content</p>
+      <Spacing size="lg" showValue />
+      <p>Large content</p>
+      <Spacing size="4xl" showValue />
+      <p>Extra large content</p>
+    </div>
+  );
+}
+  `}
+/>
+
+### Horizontal Layout
+
+<Source
+  language="tsx"
+  code={`
+import { Spacing } from '@crossuikit/core';
+
+function HorizontalLayout() {
+  return (
+    <div style={{ display: 'flex', alignItems: 'center' }}>
+      <span>Left</span>
+      <Spacing size="md" direction="horizontal" showValue />
+      <span>Center</span>
+      <Spacing size="lg" direction="horizontal" showValue />
+      <span>Right</span>
+    </div>
+  );
+}
+  `}
+/>
+
+## Best Practices
+
+1. **Consistency**: Use consistent spacing sizes throughout your application.
+2. **Visual Hierarchy**: Use larger spacing for major sections and smaller spacing for related elements.
+3. **Responsive Design**: Consider how spacing affects layout on different screen sizes.
+4. **Accessibility**: Ensure spacing doesn't create usability issues for users with disabilities.
+5. **Documentation**: Use the showValue prop during development to understand spacing values.
+6. **Color Usage**: Use subtle colors for spacing indicators to avoid visual noise.
+7. **Direction**: Choose the appropriate direction (vertical/horizontal) based on your layout needs.
+
+## Spacing Scale
+
+The design system uses a consistent spacing scale:
+
+| Size | Value |
+|------|-------|
+| xs   | 4px   |
+| sm   | 8px   |
+| md   | 16px  |
+| lg   | 24px  |
+| xl   | 32px  |
+| 2xl  | 48px  |
+| 3xl  | 64px  |
+| 4xl  | 96px  | 

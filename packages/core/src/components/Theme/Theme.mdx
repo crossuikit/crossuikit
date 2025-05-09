@@ -1,0 +1,123 @@
+import { Meta, Primary, Controls, Story, Source } from '@storybook/blocks';
+import * as ThemeStories from './Theme.stories';
+
+<Meta of={ThemeStories} />
+
+# Theme
+
+The Theme component provides a visual representation of the current theme and allows users to switch between light and dark modes.
+
+## Features
+
+- Light and dark mode support
+- Theme switching
+- Color palette display
+- Typography showcase
+- Spacing visualization
+- Interactive controls
+
+## Interactive Example
+
+Try out the Theme component with different configurations:
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Examples
+
+### Default Theme
+
+The default theme displays the current theme settings and allows switching between light and dark modes.
+
+<Story of={ThemeStories.Default} />
+
+### Theme Showcase
+
+A comprehensive showcase of the theme's capabilities including color palette, typography, and spacing.
+
+<Story of={ThemeStories.Showcase} />
+
+## Usage
+
+### Basic Usage
+
+<Source
+  language="tsx"
+  code={`
+import { Theme } from '@crossuikit/core';
+
+function MyComponent() {
+  return (
+    <Theme>
+      <div>Your content here</div>
+    </Theme>
+  );
+}
+  `}
+/>
+
+### With Theme Switching
+
+<Source
+  language="tsx"
+  code={`
+import { Theme, useTheme } from '@crossuikit/core';
+import { Button } from '@mui/material';
+
+function ThemeSwitcher() {
+  const { mode, toggleMode } = useTheme();
+
+  return (
+    <Theme>
+      <Button onClick={toggleMode}>
+        Switch to {mode === 'light' ? 'Dark' : 'Light'} Mode
+      </Button>
+    </Theme>
+  );
+}
+  `}
+/>
+
+### With Custom Theme
+
+<Source
+  language="tsx"
+  code={`
+import { Theme, createTheme } from '@crossuikit/core';
+
+const customTheme = createTheme({
+  palette: {
+    primary: {
+      main: '#1976d2',
+    },
+    secondary: {
+      main: '#dc004e',
+    },
+  },
+  typography: {
+    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+  },
+});
+
+function CustomThemedComponent() {
+  return (
+    <Theme theme={customTheme}>
+      <div>Your custom themed content</div>
+    </Theme>
+  );
+}
+  `}
+/>
+
+## Best Practices
+
+1. **Theme Consistency**: Maintain consistent theme settings across your application.
+2. **Color Usage**: Use theme colors from the palette for consistent styling.
+3. **Typography**: Follow the theme's typography settings for consistent text styling.
+4. **Spacing**: Use theme spacing values for consistent layout.
+5. **Dark Mode**: Ensure all components work well in both light and dark modes.
+6. **Accessibility**: Maintain proper contrast ratios in both themes.
+7. **Performance**: Avoid unnecessary theme switches to prevent re-renders. 

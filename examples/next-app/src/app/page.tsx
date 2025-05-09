@@ -1,74 +1,148 @@
 "use client";
 
 import { ThemeProvider, Button, useThemeManager } from "@crossuikit/core";
+import { defineStepper } from "@stepperize/react";
+import { useEffect } from "react";
 
-export default function Home() {
-  const { theme, isDarkMode, toggleDarkMode } = useThemeManager();
+const { Scoped, useStepper } = defineStepper(
+  {
+    id: "welcome",
+    title: "Welcome",
+    description: "Get started with CrossUI Kit",
+  },
+  { id: "theme", title: "Theme", description: "Customize your theme" },
+  {
+    id: "components",
+    title: "Components",
+    description: "Explore our components",
+  },
+  { id: "finish", title: "Finish", description: "You&apos;re all set!" },
+);
+
+function StepperContent() {
+  const stepper = useStepper();
+  const { isDarkMode, toggleDarkMode } = useThemeManager({
+    defaultTheme: {
+      colors: {
+        primary: "#4F46E5",
+        secondary: "#E0E7FF",
+      },
+    },
+    darkTheme: {
+      colors: {
+        primary: "#1E40AF",
+        secondary: "#1E3A8A",
+      },
+    },
+  });
+
+  // Sync dark mode with Tailwind
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", isDarkMode);
+  }, [isDarkMode]);
 
   return (
-    <ThemeProvider theme={theme}>
-      <main
-        className={`min-h-screen p-8 ${
-          isDarkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"
-        }`}
-      >
-        <header className="mb-8">
-          <h1 className="text-4xl font-bold mb-4">
-            CrossUI Kit - Next.js Demo
-          </h1>
-          <p className="text-lg mb-4">
-            Server-side rendering compatible UI components
+    <div className="space-y-6">
+      <div className="flex items-center justify-between">
+        <div>
+          <h2 className="text-2xl font-semibold">{stepper.current.title}</h2>
+          <p className="text-gray-600 dark:text-gray-400">
+            {stepper.current.description}
           </p>
-          <Button onClick={toggleDarkMode}>
-            Switch to {isDarkMode ? "Light" : "Dark"} Mode
-          </Button>
-        </header>
+        </div>
+        <Button onClick={toggleDarkMode}>
+          Switch to {isDarkMode ? "Light" : "Dark"} Mode
+        </Button>
+      </div>
 
-        <div className="grid gap-8 md:grid-cols-2">
-          <section className="space-y-6 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
-            <h2 className="text-2xl font-semibold">Button Variants</h2>
+      <div className="space-y-4">
+        {stepper.current.id === "welcome" && (
+          <div className="p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+            <h3 className="text-xl font-medium mb-4">Welcome to CrossUI Kit</h3>
+            <p className="text-gray-600 dark:text-gray-400">
+              A beautiful UI kit that works seamlessly with Stepperize.
+            </p>
+          </div>
+        )}
+
+        {stepper.current.id === "theme" && (
+          <div className="p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+            <h3 className="text-xl font-medium mb-4">Theme Customization</h3>
             <div className="space-y-4">
-              <div>
-                <h3 className="text-sm font-medium mb-2">Primary</h3>
-                <Button variant="primary">Primary Action</Button>
-              </div>
-              <div>
-                <h3 className="text-sm font-medium mb-2">Secondary</h3>
-                <Button variant="secondary">Secondary Action</Button>
-              </div>
+              <Button variant="primary">Primary Button</Button>
+              <Button variant="secondary">Secondary Button</Button>
             </div>
-          </section>
+          </div>
+        )}
 
-          <section className="space-y-6 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
-            <h2 className="text-2xl font-semibold">Button Sizes</h2>
+        {stepper.current.id === "components" && (
+          <div className="p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+            <h3 className="text-xl font-medium mb-4">Component Showcase</h3>
             <div className="space-y-4">
               <div className="flex items-center space-x-4">
                 <Button size="sm">Small</Button>
                 <Button size="md">Medium</Button>
                 <Button size="lg">Large</Button>
               </div>
+              <Button fullWidth>Full Width Button</Button>
             </div>
-          </section>
+          </div>
+        )}
 
-          <section className="space-y-6 p-6 rounded-lg border border-gray-200 dark:border-gray-700 md:col-span-2">
-            <h2 className="text-2xl font-semibold">Full Width Buttons</h2>
-            <div className="space-y-4">
-              <Button variant="primary" fullWidth>
-                Full Width Primary Button
-              </Button>
-              <Button variant="secondary" fullWidth>
-                Full Width Secondary Button
-              </Button>
-            </div>
-          </section>
+        {stepper.current.id === "finish" && (
+          <div className="p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+            <h3 className="text-xl font-medium mb-4">All Done!</h3>
+            <p className="text-gray-600 dark:text-gray-400">
+              You&apos;ve completed the demo. Try customizing the theme and
+              exploring more components!
+            </p>
+          </div>
+        )}
+      </div>
+
+      <div className="flex justify-between pt-4">
+        {!stepper.isFirst && (
+          <Button variant="secondary" onClick={stepper.prev}>
+            Previous
+          </Button>
+        )}
+        {!stepper.isLast ? (
+          <Button variant="primary" onClick={stepper.next}>
+            Next
+          </Button>
+        ) : (
+          <Button variant="primary" onClick={() => window.location.reload()}>
+            Restart
+          </Button>
+        )}
+      </div>
+    </div>
+  );
+}
+
+export default function Home() {
+  return (
+    <ThemeProvider
+      theme={{
+        colors: {
+          primary: "#4F46E5",
+          secondary: "#E0E7FF",
+        },
+      }}
+    >
+      <main className="min-h-screen p-8 bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
+        <header className="mb-8">
+          <h1 className="text-4xl font-bold mb-4">CrossUI Kit + Stepperize</h1>
+          <p className="text-lg mb-4">
+            A beautiful step-by-step workflow with CrossUI Kit components
+          </p>
+        </header>
+
+        <div className="max-w-3xl mx-auto">
+          <Scoped>
+            <StepperContent />
+          </Scoped>
         </div>
-
-        <section className="mt-8">
-          <h2 className="text-2xl font-semibold mb-4">Current Theme</h2>
-          <pre className="p-4 rounded-lg bg-gray-100 dark:bg-gray-800 overflow-auto">
-            {JSON.stringify(theme, null, 2)}
-          </pre>
-        </section>
       </main>
     </ThemeProvider>
   );

@@ -1,0 +1,153 @@
+import { Meta, Primary, Controls, Story, Source } from '@storybook/blocks';
+import * as ButtonStories from './Button.stories';
+
+<Meta of={ButtonStories} />
+
+# Button
+
+A button component that follows Material-UI design principles and provides various customization options.
+
+## Features
+
+- Multiple variants (contained, outlined, text)
+- Different sizes (small, medium, large)
+- Support for icons
+- Loading state
+- Disabled state
+- Full width option
+- Custom colors
+- Click handlers
+
+## Interactive Example
+
+Try out the Button component with different configurations:
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Examples
+
+### Default Button
+
+The default button uses the contained variant with medium size.
+
+<Story of={ButtonStories.Default} />
+
+### Variants
+
+Buttons come in three variants: contained, outlined, and text.
+
+<Story of={ButtonStories.Variants} />
+
+### Sizes
+
+Buttons are available in three sizes: small, medium, and large.
+
+<Story of={ButtonStories.Sizes} />
+
+### States
+
+Buttons can be in different states: default, disabled, and loading.
+
+<Story of={ButtonStories.States} />
+
+## Usage
+
+### Basic Usage
+
+<Source
+  language="tsx"
+  code={`
+import { Button } from '@crossuikit/core';
+
+function MyComponent() {
+  return (
+    <Button
+      variant="contained"
+      onClick={() => console.log('Button clicked')}
+    >
+      Click Me
+    </Button>
+  );
+}
+  `}
+/>
+
+### With Different Variants
+
+<Source
+  language="tsx"
+  code={`
+import { Button } from '@crossuikit/core';
+
+function VariantButtons() {
+  return (
+    <div style={{ display: 'flex', gap: '8px' }}>
+      <Button variant="contained">Contained</Button>
+      <Button variant="outlined">Outlined</Button>
+      <Button variant="text">Text</Button>
+    </div>
+  );
+}
+  `}
+/>
+
+### With Different Sizes
+
+<Source
+  language="tsx"
+  code={`
+import { Button } from '@crossuikit/core';
+
+function SizeButtons() {
+  return (
+    <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+      <Button size="small">Small</Button>
+      <Button size="medium">Medium</Button>
+      <Button size="large">Large</Button>
+    </div>
+  );
+}
+  `}
+/>
+
+### With Loading State
+
+<Source
+  language="tsx"
+  code={`
+import { Button } from '@crossuikit/core';
+import { useState } from 'react';
+
+function LoadingButton() {
+  const [loading, setLoading] = useState(false);
+
+  const handleClick = () => {
+    setLoading(true);
+    setTimeout(() => setLoading(false), 2000);
+  };
+
+  return (
+    <Button
+      loading={loading}
+      onClick={handleClick}
+    >
+      {loading ? 'Loading...' : 'Click to Load'}
+    </Button>
+  );
+}
+  `}
+/>
+
+## Best Practices
+
+1. **Button Text**: Use clear, action-oriented text that describes what will happen when clicked.
+2. **Button Placement**: Place primary actions on the right and secondary actions on the left.
+3. **Button Size**: Use appropriate sizes based on the context and importance of the action.
+4. **Loading State**: Show loading state for actions that take time to complete.
+5. **Disabled State**: Disable buttons when the action is not available.
+6. **Accessibility**: Ensure buttons have proper ARIA labels and keyboard navigation.
+7. **Consistency**: Maintain consistent button styles throughout your application. 

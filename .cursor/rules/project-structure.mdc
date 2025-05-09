@@ -1,0 +1,27 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# CrossUI Kit Project Structure
+
+This is a monorepo using pnpm workspaces for managing multiple packages. The main configuration is in [package.json](mdc:package.json).
+
+## Core Package
+The main UI components are in the core package:
+- Entry point: [packages/core/src/index.tsx](mdc:packages/core/src/index.tsx)
+- Styles: [packages/core/src/styles/main.css](mdc:packages/core/src/styles/main.css)
+- Components: `packages/core/src/components/`
+
+## Storybook Configuration
+Storybook is configured in the `.storybook` directory:
+- Main config: [.storybook/main.ts](mdc:.storybook/main.ts)
+- Preview config: [.storybook/preview.tsx](mdc:.storybook/preview.tsx)
+- Vite config: [.storybook/vite.config.ts](mdc:.storybook/vite.config.ts)
+- Tailwind config: [.storybook/tailwind.config.js](mdc:.storybook/tailwind.config.js)
+
+## Testing
+Jest is used for testing with the following configuration:
+- Jest config: [jest.config.js](mdc:jest.config.js)
+- Jest setup: [jest.setup.js](mdc:jest.setup.js)
+- Babel config: [babel.config.js](mdc:babel.config.js)

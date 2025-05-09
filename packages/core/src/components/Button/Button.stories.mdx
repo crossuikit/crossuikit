@@ -1,0 +1,90 @@
+import { Meta, Controls, Story, Primary, ArgsTable } from '@storybook/blocks';
+import { Button } from './Button';
+
+<Meta title="Components/Button" component={Button} />
+
+# Button
+
+The Button component is a fundamental UI element that triggers actions or events, such as submitting a form, opening a dialog, canceling an action, or performing a delete operation.
+
+## Usage
+
+```tsx
+import { Button } from '@crossuikit/core';
+
+// Basic usage
+<Button>Click me</Button>
+
+// With variants
+<Button variant="primary">Primary Button</Button>
+<Button variant="secondary">Secondary Button</Button>
+
+// With sizes
+<Button size="sm">Small Button</Button>
+<Button size="md">Medium Button</Button>
+<Button size="lg">Large Button</Button>
+```
+
+## Examples
+
+### Primary Button Example
+
+<Story name="PrimaryExample">
+  <Button variant="primary">Primary Button</Button>
+</Story>
+
+### Secondary Button Example
+
+<Story name="SecondaryExample">
+  <Button variant="secondary">Secondary Button</Button>
+</Story>
+
+### Small Button Example
+
+<Story name="SmallExample">
+  <Button size="sm">Small Button</Button>
+</Story>
+
+### Large Button Example
+
+<Story name="LargeExample">
+  <Button size="lg">Large Button</Button>
+</Story>
+
+### Disabled Button Example
+
+<Story name="DisabledExample">
+  <Button disabled>Disabled Button</Button>
+</Story>
+
+## Props
+
+<Controls />
+
+## API Reference
+
+<ArgsTable of={Button} />
+
+## Accessibility
+
+- Buttons are keyboard accessible and can be triggered using the Enter or Space key
+- Disabled buttons are properly marked with the `disabled` attribute
+- Buttons with icons should include descriptive text or aria-labels
+- Color contrast meets WCAG 2.1 AA standards
+
+## Best Practices
+
+1. **Labeling**
+   - Use clear, action-oriented labels
+   - Keep button text concise
+   - Use sentence case for button labels
+
+2. **Placement**
+   - Primary actions should be more prominent
+   - Secondary actions should be less prominent
+   - Destructive actions should be clearly marked
+
+3. **States**
+   - Always provide visual feedback for hover, focus, and active states
+   - Disabled states should be clearly visible
+   - Loading states should be indicated when an action is in progress 

@@ -25,7 +25,7 @@ body {
   background: rgb(var(--background-rgb));
 }
 
-code {
+pre {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }

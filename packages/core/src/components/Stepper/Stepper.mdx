@@ -1,0 +1,309 @@
+import { Meta, Primary, Controls, Story, Source } from '@storybook/blocks';
+import * as StepperStories from './Stepper.stories';
+
+<Meta of={StepperStories} />
+
+# Stepper
+
+A stepper component that displays progress through a sequence of logical and numbered steps. It provides a visual representation of progress through a multi-step process.
+
+## Features
+
+- Horizontal and vertical orientations
+- Optional step content display
+- Clickable steps for navigation
+- Alternative label display
+- Support for optional steps
+- Error state handling
+- Navigation controls
+- Customizable step content
+
+## Interactive Example
+
+Try out the Stepper component with different configurations:
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Examples
+
+### Default Stepper
+
+The default stepper displays steps horizontally with navigation controls and step content.
+
+<Story of={StepperStories.Default} />
+
+### Vertical Stepper
+
+The vertical stepper displays steps in a vertical layout, which is useful for mobile views or when space is limited.
+
+<Story of={StepperStories.Vertical} />
+
+### Clickable Steps
+
+Enable step clicking to allow users to navigate directly to any step.
+
+<Story of={StepperStories.Clickable} />
+
+### Alternative Label
+
+The alternative label displays the step description below the step label.
+
+<Story of={StepperStories.AlternativeLabel} />
+
+### Optional Steps
+
+Mark steps as optional to indicate that they can be skipped.
+
+<Story of={StepperStories.WithOptionalSteps} />
+
+### Error State
+
+Display error states for steps that have encountered issues.
+
+<Story of={StepperStories.WithError} />
+
+## Usage
+
+### Basic Usage
+
+<Source
+  language="tsx"
+  code={`
+import { Stepper } from '@crossuikit/core';
+import { useState } from 'react';
+
+function BasicStepper() {
+  const [activeStep, setActiveStep] = useState(0);
+
+  const steps = [
+    {
+      label: 'Step 1',
+      description: 'Description for step 1',
+      content: <div>Step 1 Content</div>,
+    },
+    {
+      label: 'Step 2',
+      description: 'Description for step 2',
+      content: <div>Step 2 Content</div>,
+    },
+  ];
+
+  const handleNext = () => {
+    setActiveStep((prev) => Math.min(prev + 1, steps.length - 1));
+  };
+
+  const handleBack = () => {
+    setActiveStep((prev) => Math.max(prev - 1, 0));
+  };
+
+  return (
+    <Stepper
+      steps={steps}
+      activeStep={activeStep}
+      showContent
+      showNavigation
+      onNext={handleNext}
+      onBack={handleBack}
+    />
+  );
+}
+  `}
+/>
+
+### With Form Content
+
+<Source
+  language="tsx"
+  code={`
+import { Stepper } from '@crossuikit/core';
+import { TextField, Box } from '@mui/material';
+import { useState } from 'react';
+
+function FormStepper() {
+  const [activeStep, setActiveStep] = useState(0);
+
+  const steps = [
+    {
+      label: 'Personal Information',
+      description: 'Enter your personal details',
+      content: (
+        <Box sx={{ p: 2 }}>
+          <TextField
+            label="First Name"
+            fullWidth
+            margin="normal"
+          />
+          <TextField
+            label="Last Name"
+            fullWidth
+            margin="normal"
+          />
+        </Box>
+      ),
+    },
+    {
+      label: 'Contact Details',
+      description: 'Enter your contact information',
+      content: (
+        <Box sx={{ p: 2 }}>
+          <TextField
+            label="Email"
+            type="email"
+            fullWidth
+            margin="normal"
+          />
+          <TextField
+            label="Phone"
+            fullWidth
+            margin="normal"
+          />
+        </Box>
+      ),
+    },
+  ];
+
+  const handleNext = () => {
+    setActiveStep((prev) => Math.min(prev + 1, steps.length - 1));
+  };
+
+  const handleBack = () => {
+    setActiveStep((prev) => Math.max(prev - 1, 0));
+  };
+
+  return (
+    <Stepper
+      steps={steps}
+      activeStep={activeStep}
+      showContent
+      showNavigation
+      onNext={handleNext}
+      onBack={handleBack}
+    />
+  );
+}
+  `}
+/>
+
+### With Optional Steps
+
+<Source
+  language="tsx"
+  code={`
+import { Stepper } from '@crossuikit/core';
+import { useState } from 'react';
+
+function OptionalStepsStepper() {
+  const [activeStep, setActiveStep] = useState(0);
+
+  const steps = [
+    {
+      label: 'Required Step',
+      description: 'This step is required',
+      content: <div>Required Content</div>,
+    },
+    {
+      label: 'Optional Step',
+      description: 'This step is optional',
+      optional: true,
+      content: <div>Optional Content</div>,
+    },
+    {
+      label: 'Final Step',
+      description: 'Complete the process',
+      content: <div>Final Content</div>,
+    },
+  ];
+
+  const handleNext = () => {
+    setActiveStep((prev) => Math.min(prev + 1, steps.length - 1));
+  };
+
+  const handleBack = () => {
+    setActiveStep((prev) => Math.max(prev - 1, 0));
+  };
+
+  return (
+    <Stepper
+      steps={steps}
+      activeStep={activeStep}
+      showContent
+      showNavigation
+      onNext={handleNext}
+      onBack={handleBack}
+    />
+  );
+}
+  `}
+/>
+
+### With Error Handling
+
+<Source
+  language="tsx"
+  code={`
+import { Stepper } from '@crossuikit/core';
+import { useState } from 'react';
+
+function ErrorHandlingStepper() {
+  const [activeStep, setActiveStep] = useState(0);
+  const [hasError, setHasError] = useState(false);
+
+  const steps = [
+    {
+      label: 'Step 1',
+      description: 'First step',
+      content: <div>Step 1 Content</div>,
+      completed: true,
+    },
+    {
+      label: 'Step 2',
+      description: 'Second step',
+      content: <div>Step 2 Content</div>,
+      error: hasError,
+    },
+    {
+      label: 'Step 3',
+      description: 'Final step',
+      content: <div>Step 3 Content</div>,
+    },
+  ];
+
+  const handleNext = () => {
+    if (activeStep === 1) {
+      setHasError(true);
+      return;
+    }
+    setActiveStep((prev) => Math.min(prev + 1, steps.length - 1));
+  };
+
+  const handleBack = () => {
+    setActiveStep((prev) => Math.max(prev - 1, 0));
+  };
+
+  return (
+    <Stepper
+      steps={steps}
+      activeStep={activeStep}
+      showContent
+      showNavigation
+      onNext={handleNext}
+      onBack={handleBack}
+    />
+  );
+}
+  `}
+/>
+
+## Best Practices
+
+1. **Step Content**: Keep step content focused and relevant to the current step.
+2. **Navigation**: Always provide clear navigation controls when using the stepper.
+3. **Progress Indication**: Use the active step and completed states to clearly show progress.
+4. **Error Handling**: Use the error state to indicate issues that need attention.
+5. **Optional Steps**: Clearly mark optional steps to help users understand the process flow.
+6. **Responsive Design**: Consider using the vertical orientation for mobile views.
+7. **Accessibility**: Ensure all interactive elements are keyboard accessible and have proper ARIA labels. 

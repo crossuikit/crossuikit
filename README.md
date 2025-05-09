@@ -243,7 +243,7 @@ function App() {
       <button
         onClick={() =>
           setTheme((current) =>
-            current === lightTheme ? darkTheme : lightTheme
+            current === lightTheme ? darkTheme : lightTheme,
           )
         }
       >

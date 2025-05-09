@@ -1,12 +1,12 @@
-// Export components
-export * from './components/Button';
-export * from './components/ThemeProvider';
+// Theme
+export * from './foundation/theme';
+export { useTheme } from './providers/ThemeProvider';
+export * from './constants/theme';
 
-// Export hooks
-export * from './hooks/useThemeManager';
+// Components
+export * from './components/Theme/Theme';
+export * from './components/Button/Button';
+export * from './components/Stepper/Stepper';
 
 // Export styles
-import './styles/main.css';
-
-// Export types
-export type { Theme } from './components/ThemeProvider';
+import "./styles/main.css";

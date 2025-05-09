@@ -105,7 +105,7 @@ export function ThemeDemo() {
               />
               <span className="text-sm">{name}</span>
             </div>
-          )
+          ),
         )}
       </div>
     </div>

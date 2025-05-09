@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import "@crossuikit/core/dist/main.css";
 import "./globals.css";
 
 export const metadata: Metadata = {

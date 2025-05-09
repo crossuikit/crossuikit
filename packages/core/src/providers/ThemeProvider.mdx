@@ -1,0 +1,124 @@
+import { Meta, Primary, Controls, Story, Source } from '@storybook/blocks';
+import * as ThemeProviderStories from './ThemeProvider.stories';
+
+<Meta of={ThemeProviderStories} />
+
+# ThemeProvider
+
+The ThemeProvider component manages the application's theme state and provides theme context to all child components, enabling consistent theming throughout your application.
+
+## Features
+
+- Theme state management
+- Light and dark mode support
+- Theme switching functionality
+- Context-based theme access
+- Material-UI integration
+- Color palette management
+- Typography system support
+
+## Interactive Example
+
+Try out the ThemeProvider component with different configurations:
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Examples
+
+### Default Theme
+
+The default theme provider with theme switching capability and content that adapts to the current theme.
+
+<Story of={ThemeProviderStories.Default} />
+
+### Color Showcase
+
+A comprehensive showcase of theme colors and their variations, demonstrating how different components adapt to the theme.
+
+<Story of={ThemeProviderStories.ColorShowcase} />
+
+## Usage
+
+### Basic Usage
+
+<Source
+  language="tsx"
+  code={`
+import { ThemeProvider } from '@crossuikit/core';
+
+function App() {
+  return (
+    <ThemeProvider>
+      <YourApp />
+    </ThemeProvider>
+  );
+}
+  `}
+/>
+
+### With Theme Hook
+
+<Source
+  language="tsx"
+  code={`
+import { useTheme } from '@crossuikit/core';
+import { Typography, Button, Paper } from '@mui/material';
+
+function ThemedComponent() {
+  const { currentTheme, setTheme } = useTheme();
+  
+  return (
+    <Paper sx={{ p: 2 }}>
+      <Typography variant="h6" gutterBottom>
+        Current Theme: {currentTheme}
+      </Typography>
+      <Button
+        variant="contained"
+        onClick={() => setTheme(currentTheme === 'light' ? 'dark' : 'light')}
+      >
+        Switch to {currentTheme === 'light' ? 'Dark' : 'Light'} Mode
+      </Button>
+    </Paper>
+  );
+}
+  `}
+/>
+
+### With Theme-Aware Components
+
+<Source
+  language="tsx"
+  code={`
+import { Paper, Typography } from '@mui/material';
+
+function ColorComponents() {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+      <Paper sx={{ p: 2, bgcolor: 'primary.main', color: 'primary.contrastText' }}>
+        <Typography>Primary Color</Typography>
+      </Paper>
+      <Paper sx={{ p: 2, bgcolor: 'secondary.main', color: 'secondary.contrastText' }}>
+        <Typography>Secondary Color</Typography>
+      </Paper>
+      <Paper sx={{ p: 2, bgcolor: 'error.main', color: 'error.contrastText' }}>
+        <Typography>Error Color</Typography>
+      </Paper>
+    </div>
+  );
+}
+  `}
+/>
+
+## Best Practices
+
+1. **Root Level**: Place ThemeProvider at the root of your application.
+2. **Theme Consistency**: Maintain consistent theme settings across your application.
+3. **Performance**: Avoid unnecessary theme switches to prevent re-renders.
+4. **Accessibility**: Ensure proper contrast ratios in both light and dark modes.
+5. **Context Usage**: Use the useTheme hook to access theme context in child components.
+6. **Customization**: Extend the default theme rather than creating a new one from scratch.
+7. **Type Safety**: Use TypeScript for better type checking and autocompletion. 
