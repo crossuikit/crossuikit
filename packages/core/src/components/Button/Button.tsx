@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button as MuiButton, ButtonProps as MuiButtonProps } from '@mui/material';
-import { COLORS } from '../../constants/theme';
 
 export type ButtonVariant = 'primary' | 'secondary' | 'success' | 'error' | 'warning' | 'info';
 export type ButtonSize = 'sm' | 'md' | 'lg';
