@@ -21,7 +21,8 @@
     "build-storybook": "turbo run build-storybook",
     "changeset": "changeset",
     "version-packages": "changeset version",
-    "release": "turbo run build && changeset publish"
+    "release": "turbo run build && changeset publish",
+    "validate": "turbo run lint && tsc --noEmit && turbo run build"
   },
   "dependencies": {
     "@stepperize/react": "0.1.0",
